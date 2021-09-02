@@ -218,6 +218,38 @@ body {
   animation: pauseAndFade 3s;
   position: absolute;
 }
+.final .border {
+  z-index: 1;
+}
+
+.user-win, .house-win {
+  position: absolute;
+  background-color: hsl(214, 47%, 23%);
+  height: 30em;
+  width: 30em;
+  border-radius: 50%;
+  transform: translate(-9em, 1em);
+  z-index: -3;
+}
+.circle1 {
+  background-color: hsl(215, 47%, 25%);
+  height: 25em;
+  width: 25em;
+  border-radius: 50%;
+  margin: auto;
+  transform: translateY(2.5em);
+  z-index: -2;
+}
+.circle2 {
+  background-color: hsl(215, 46%, 31%);
+  height: 20em;
+  width: 20em;
+  border-radius: 50%;
+  margin: auto;
+  transform: translateY(2.5em);
+  z-index: -2;
+}
+
 .result {
   animation: pauseAndFade 2s;
   display: flex;

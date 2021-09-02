@@ -5,7 +5,8 @@ import Rules from './components/Rules';
 import Game from './components/Game';
 
 function App() {
-  const [ step, setStep ] = useState('step 1')
+  const [ step, setStep ] = useState('step 1');
+  const [ score, setScore ] = useState(0);
 
   const stepOne = () => {
     setStep("step 1");
@@ -20,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header score="12"/>
-      <Game step={step} stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree}/>
+      <Header score={score}/>
+      <Game step={step} stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree} score={score} setScore={setScore}/>
       <Rules step={step}/>
     </div>
   );

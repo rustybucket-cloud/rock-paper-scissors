@@ -38,13 +38,13 @@ function Game(props) {
     const result = () => {
         if (((userChoice === 'rock') && (house ==='scissors')) || ((userChoice === 'paper' && house === 'rock')) || ((userChoice === 'scissors' && house === 'paper'))) {
             setDidWin('YOU WON');
+            props.setScore(props.score + 1);
         }
         else if ((userChoice === 'rock' && house === 'paper') || (userChoice === 'paper' && house === 'scissors') || (userChoice === 'scissors' && house === 'rock')) {
             setDidWin('YOU LOST');
         }
         else {
             setDidWin('DRAW');
-            console.log(userChoice, house);
         }
     }
 
@@ -66,11 +66,8 @@ function Game(props) {
     }
 
     const resetGame = () => {
-        setChoiceImg(null);
-        setHouse('');
-        setHouseImg(null);
-        setDidWin('');
         props.stepOne();
+        setUserChoice('');
     }
 
     if (props.step === 'step 1') { //user choice screen
@@ -100,18 +97,28 @@ function Game(props) {
     else if (props.step === 'step 3') { //results screen
         return (
             <div className="choices final">
-                <div className="step2">
+                <div className="step2 user">
                     <p>You Picked</p>
                     <Option step="two" name={userChoice} img={choiceImg}/>
+                    <div style={didWin === 'YOU WON' ? { animation: 'fadein 3s' } : { visibility: 'hidden' } } className="user-win">
+                        <div className="circle1">
+                            <div className="circle2"></div>
+                        </div>
+                    </div>
                 </div>
                 <div className="result">
                     <h2>{didWin}</h2>
                     <button type="button" onClick={resetGame}>PLAY AGAIN</button>
                 </div>
-                <div className="step2">
+                <div className="step2 house3">
                     <p>The House Picked</p>
                     <div className="dark-circle"></div>
                     <Option step="two" name={house} img={houseImg}/>
+                    <div style={didWin === 'YOU LOST' ? { animation: 'fadein 3s' } : { visibility: 'hidden' } } className="house-win">
+                        <div className="circle1">
+                            <div className="circle2"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
