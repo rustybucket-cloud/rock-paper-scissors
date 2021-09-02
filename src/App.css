@@ -10,6 +10,25 @@ body {
   min-height: 100vh;
   padding: 2rem 1rem;
 }
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes pauseAndFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /*top styling*/
 .top {
   display: flex;
@@ -58,6 +77,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   margin-top: 5em;
+  animation: fadein 2s;
 }
 .option {
   background-color: white;
@@ -167,9 +187,13 @@ body {
   color: white;
   margin: 3em auto;
   max-width: 34em;
-  min-height: 10em;
+  min-height: 8em;
   text-align: center;
-  animation: fadein 1s;
+  animation: fadein 2s;
+}
+.final {
+  max-width: 44em;
+  transition: 1s;
 }
 .step2 {
   display: flex;
@@ -190,26 +214,25 @@ body {
   top: 11em;
   left: 1.5em;
 }
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes pauseAndFade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 .house .border {
   animation: pauseAndFade 3s;
   position: absolute;
+}
+.result {
+  animation: pauseAndFade 2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 5em;
+}
+.result h2 {
+  font-size: 2.5rem;
+}
+.result button {
+  color:hsl(349, 71%, 52%);
+  padding: 1em 4.5em;
+  border-radius: 5px;
+  border: none;
+  letter-spacing: 2px;
 }
