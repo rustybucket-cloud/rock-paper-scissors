@@ -173,7 +173,7 @@ body {
   color: white;
   padding: .6rem 2.5rem;
   border-radius: 10px;
-  margin-left: 90%;
+  margin-left: 80%;
   position: relative;
   bottom: 5rem;
 }
@@ -190,6 +190,7 @@ body {
   min-height: 8em;
   text-align: center;
   animation: fadein 2s;
+  --webkit-animation: fadein 2s;
 }
 .final {
   max-width: 44em;
@@ -267,4 +268,46 @@ body {
   border-radius: 5px;
   border: none;
   letter-spacing: 2px;
+}
+
+@media screen and (max-width: 650px) {
+  * {
+    transform: none;
+  }
+  #rules {
+    transform: translateX(-3em);
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    min-height: 15em;
+  }
+  .result {
+    grid-column: span 2;
+    order: 3;
+  }
+  .step2 {
+    align-items: center;
+  }
+  .house3 * {
+    align-self: center;
+  }
+  .house-win, .player-win, .border, .step2 {
+    transform: none;
+  }
+  .step2 {
+    transform: scale(.9);
+  }
+  .dark-circle {
+    transform: translateX(-.8em) scale(1.2);
+  }
+  .user-win {
+    display: none;
+  }
+  .house-win {
+    display: none;
+  }
+  .result {
+    z-index: 1;
+  }
 }
